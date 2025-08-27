@@ -1,0 +1,167 @@
+/* Reset + Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: #fafafa;
+  color: #222;
+}
+
+/* Grid Layout for Page */
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  grid-area: header;
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  color: #fff;
+  padding: 1.5rem;
+  text-align: center;
+}
+header h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+header p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Navigation Bar (Flexbox) */
+.navbar {
+  grid-area: nav;
+  background: #222;
+}
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.navbar li {
+  margin: 0.8rem 1.2rem;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.navbar a:hover {
+  color: #4CAF50;
+}
+
+/* Main Layout (Grid) */
+main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.2rem;
+  padding: 1.2rem;
+}
+
+/* Content */
+.content {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.content h2 {
+  margin-bottom: 0.5rem;
+  color: #2E7D32;
+}
+.content h3 {
+  margin-top: 1rem;
+  color: #4CAF50;
+}
+
+/* Card Section (Flexbox) */
+.card-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.card {
+  flex: 1;
+  padding: 1rem;
+  background: white;
+  border: 2px solid #4CAF50;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  background: #f1fff1;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #eaf3ea;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.sidebar h2 {
+  margin-bottom: 0.5rem;
+}
+.sidebar ul {
+  list-style: none;
+}
+.sidebar li {
+  margin-bottom: 0.5rem;
+}
+.sidebar a {
+  color: #2E7D32;
+  text-decoration: none;
+}
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  grid-area: footer;
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr; /* stack content + sidebar */
+  }
+  .card-container {
+    flex-direction: column; /* stack cards */
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar li {
+    margin: 0.5rem 0;
+  }
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
